@@ -1,0 +1,5 @@
+1. Upload File
+2. Parse Grammar - endpoint
+3. Save the note into markdown - endpoint
+4. List the saved notes - endpoint
+5. Return HTML version of saved Markdown note - endpoint
