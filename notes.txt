@@ -1,4 +1,4 @@
-1. Upload File
+1. Upload File - Done
 2. Parse Grammar - endpoint
 3. Save the note into markdown - endpoint
 4. List the saved notes - endpoint
