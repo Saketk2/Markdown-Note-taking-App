@@ -19,13 +19,15 @@ def sucess():
 
 @app.route('/grammar')
 def grammer(filename):
+    tool = language_tool_python.LanguageTool('en-US')
     file = open('/' + filename)
     lines = file.readlines
-
-
-
-
-
+    corr = []
+    sugs = []
+    for line in lines:
+        sugs.append(tool.check(line))
+        corr.append(tool.correct(line))
+    return render_template('suggestions.html', {corr, sugs})
 
 if __name__ == '__main__':
     app.run(debug=True)

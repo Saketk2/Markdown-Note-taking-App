@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Grammar Suggestions </title>
+    </head>
+
+    <body>
+        {% for i in range(len(sugs))%}
+            <ul>
+                <li>{%suggs[i]%} </li>
+                <li>Did you mean: </li>
+                 <li>{%corr[i]%} </li>
+            </ul>
+        {%endfor%}
+    </body>
+</html>
