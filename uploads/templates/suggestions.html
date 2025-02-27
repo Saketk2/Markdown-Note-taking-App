@@ -5,12 +5,15 @@
     </head>
 
     <body>
-        {% for i in range(len(sugs))%}
+        {% for i in range(corr|length)%}
             <ul>
-                <li>{{sugs[i]}} </li>
                 <li>Did you mean: </li>
                 <li>{{corr[i]}}</li>
             </ul>
         {%endfor%}
+        <a href = "/"><button>Upload Again</button></a>
+        <form action = "/grammar" method = "POST" enctype  = "multipart/form-data">
+            <input type = "hidden" name = "curr" value = {{name}}/>
+            <button type = "button" href = "/"><button>Save Note</button></button>
     </body>
 </html>
