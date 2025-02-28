@@ -12,8 +12,10 @@
             </ul>
         {%endfor%}
         <a href = "/"><button>Upload Again</button></a>
-        <form action = "/grammar" method = "POST" enctype  = "multipart/form-data">
-            <input type = "hidden" name = "curr" value = {{name}}/>
-            <button type = "button" href = "/"><button>Save Note</button></button>
+        <a href = "/saved"><button>View all Saved Notes</button></a>
+        <form action = "/save" method = "POST">
+            <input type = "hidden" name="name" value = {{name}}>
+            <button type = "submit" >Save Note</button>
+        </form>
     </body>
 </html>
