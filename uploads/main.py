@@ -75,7 +75,7 @@ def convert():
         with open(file_path, 'r') as file_data:
             temp = file_data.read()
         
-        tempHtml = markdown.markdown(temp)
+        tempHtml = markdown.markdown(temp, extensions = ['extra'])
         soup = BeautifulSoup(tempHtml, "html.parser")
         final = soup.prettify()
 
