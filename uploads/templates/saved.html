@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Saved Notes</title>
+    </head>
+
+    <body>
+        {%for note in notes%}
+        <ul>
+            <li>Title: {{note.name}}</l1>
+            <li>Content: {{note.data.decode('utf-8')}}</l1>
+        </ul>
+        {%endfor%}
+        <a href = "/"><button>Upload Again</button></a>
+        <button onclick="history.back()">Go Back</button>
+    </body>
+</html>

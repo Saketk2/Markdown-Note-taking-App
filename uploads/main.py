@@ -1,4 +1,6 @@
 import logging
+import markdown
+from bs4 import BeautifulSoup
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -57,6 +59,28 @@ def save():
         return render_template('options.html')
     
     return "Something went wrong", 400
+
+@app.route('/saved')
+def saved():
+    notes = File.query.all()
+    return render_template('saved.html', notes=notes)
+
+@app.route('/convert', methods = ['POST'])
+def convert():
+    filename = request.form.get('name')
+
+    if filename:
+        file_path = os.path.join(app.config['documents'], filename)
+        
+        with open(file_path, 'r') as file_data:
+            temp = file_data.read()
+        
+        tempHtml = markdown.markdown(temp)
+        soup = BeautifulSoup(tempHtml, "html.parser")
+        final = soup.prettify()
+
+        return render_template('convert.html', final=final)
+
 
 
 if __name__ == '__main__':
